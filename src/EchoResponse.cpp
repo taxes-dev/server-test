@@ -3,7 +3,7 @@
 #include <sys/socket.h>
 #include <stdexcept>
 
-#define BUF_SIZE 60
+#define BUF_SIZE 200
 const std::string BANNER_IN{"Type what you want, and it will be echoed. Ctrl-D to end.\n\n"};
 const std::string BANNER_OUT{"\nBye.\n\n"};
 
@@ -39,7 +39,6 @@ void EchoResponse::respond(SocketDescriptor socketd)
                 {
                     buffer[i] = ' ';
                     done = true;
-                    break;
                 }
             }
 
