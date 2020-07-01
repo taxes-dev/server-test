@@ -18,4 +18,6 @@ project "ServerTest"
    filter "configurations:Release"
       defines { "NDEBUG" }
       optimize "On"
-      postbuildcommands { "docker build -t taxes:servertest --build-arg buildcfg=%{cfg.buildcfg} ." }
+      if os.getenv("PROJECT_ID") then
+         postbuildcommands { "docker build -t gcr.io/" .. os.getenv("PROJECT_ID") .. "/servertest:v1 --build-arg buildcfg=%{cfg.buildcfg} ." }
+      end
