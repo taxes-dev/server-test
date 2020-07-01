@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "Server.hpp"
-#include "HelloWorldResponse.hpp"
+#include "EchoResponse.hpp"
 
 void usage()
 {
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
         Server server{bind_addr, bind_port};
         std::cout << "\nListening for connections ..." << std::endl;
         int max_connections{5};
-        HelloWorldResponse response{};
+        EchoResponse response{};
         server.listen(max_connections, response);
     }
     catch (std::runtime_error &e)
